@@ -54,6 +54,13 @@ const _schema = i.schema({
         alive: i.boolean(),
         hp: i.number(),
       }),
+      topics: {
+        shot: i.entity({
+          damage: i.number(),
+          targetId: i.string(),
+          shooterId: i.string(),
+        }),
+      },
     },
   },
 });

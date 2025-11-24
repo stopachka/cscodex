@@ -15,6 +15,7 @@ import {
   PlaneGeometry,
   Raycaster,
   Scene,
+  Vector2,
   Vector3,
   WebGLRenderer,
 } from "three";
@@ -76,7 +77,7 @@ function FPSPresenceArena() {
   const controlsRef = useRef<PointerLockControls | null>(null);
   const remoteMeshesRef = useRef<Map<string, Group>>(new Map());
   const peersRef = useRef<Record<string, PresencePayload>>({});
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
   const gunRef = useRef<Group | null>(null);
   const recoilRef = useRef(0);
   const audioRef = useRef<AudioContext | null>(null);
@@ -339,7 +340,7 @@ function FPSPresenceArena() {
       if (!controls.isLocked || isDead) return;
       const targetMeshes = [...remoteMeshesRef.current.values()];
       if (!targetMeshes.length) return;
-      raycaster.setFromCamera({ x: 0, y: 0 }, camera);
+      raycaster.setFromCamera(new Vector2(0, 0), camera);
       const hits = raycaster.intersectObjects(targetMeshes, true);
       if (!hits.length) return;
       const hit = hits[0].object;

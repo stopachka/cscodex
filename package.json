@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@instantdb/react": "latest",
     "@instantdb/admin": "latest",
+    "@instantdb/react": "latest",
     "next": "15.4.6",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "three": "^0.181.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

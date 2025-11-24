@@ -18,6 +18,10 @@ const _schema = i.schema({
       done: i.boolean(),
       createdAt: i.number(),
     }),
+    maps: i.entity({
+      name: i.string().indexed().unique(),
+      createdAt: i.number().indexed(),
+    }),
   },
   links: {
     $usersLinkedPrimaryUser: {
@@ -37,6 +41,19 @@ const _schema = i.schema({
   rooms: {
     todos: {
       presence: i.entity({}),
+    },
+    maps: {
+      presence: i.entity({
+        id: i.string(),
+        name: i.string(),
+        color: i.string(),
+        posX: i.number(),
+        posY: i.number(),
+        posZ: i.number(),
+        rotY: i.number(),
+        alive: i.boolean(),
+        hp: i.number(),
+      }),
     },
   },
 });
